@@ -1,7 +1,10 @@
 {
   "name": "react-full-year-calendar",
+  "npmName": "react-full-year-calendar",
   "version": "0.1.0",
   "private": true,
+  "description": "Twelve month calender component in React JS",
+  "main": "index.tsx",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -40,5 +43,11 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "node-sass": "^5.0.0"
+  },
+  "keywords": ["react","twelve-months","full-year-calendar","react-component","year-calendar"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jayeshkattar/react-full-year-calendar"
   }
 }

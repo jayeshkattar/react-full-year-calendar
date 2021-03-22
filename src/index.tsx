@@ -1,6 +1,6 @@
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Calendar from './Calendar';
 
-ReactDOM.render(<Calendar year={2019}/>, document.getElementById('root'));
+// ReactDOM.render(<Calendar year={2019}/>, document.getElementById('root'));
 
-// export default Calendar;
+export default Calendar;
