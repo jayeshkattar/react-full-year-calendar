@@ -3,7 +3,7 @@
   "npmName": "react-full-year-calendar",
   "version": "0.1.0",
   "private": true,
-  "description": "Twelve month calender component in React JS",
+  "description": "Twelve months calendar component in React JS",
   "main": "index.tsx",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",

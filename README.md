@@ -1,6 +1,6 @@
 # react-full-year-calendar
 
-Twelve month calender component in React JS
+Twelve months calendar component in React JS
 
 ## Documentation
 
