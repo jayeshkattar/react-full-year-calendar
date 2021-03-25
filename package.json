@@ -6,14 +6,11 @@
   "description": "Twelve months calendar component in React JS",
   "main": "index.tsx",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.2.3",
-    "web-vitals": "^1.1.1"
+    "typescript": "^4.2.3"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0",
+    "react-dom": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
