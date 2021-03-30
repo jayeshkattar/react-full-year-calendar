@@ -16,8 +16,7 @@
         "downlevelIteration": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": false,
-        "jsx": "react-jsx",
-        "noEmit": true
+        "jsx": "react"
     },
     "include": ["src"],
     "exclude": ["test.ts", "**/*.test.ts","./build/**/*"]

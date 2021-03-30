@@ -27,12 +27,14 @@ const Calendar: React.FC<{ year: number }> = ({ year }) => {
 				dateArr.push(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`);
 				startDate = new Date(date.setDate(date.getDate() + 1));
 			}
-
+			
 			let tempArr =
 				getWeek.getDay() !== 0
-					? Array(getWeek.getDay() - 1)
-							.join('.')
-							.split('.')
+					? getWeek.getDay() - 1 === 0
+						? []
+						: Array(getWeek.getDay() - 1)
+								.join('.')
+								.split('.')
 					: Array(6).join('.').split('.');
 
 			dateArr.splice(0, 0, ...tempArr);
@@ -66,11 +68,11 @@ const Calendar: React.FC<{ year: number }> = ({ year }) => {
 								</tr>
 							</thead>
 							<tbody key={`${month.label}`}>
-								{month.days.reduce((acc, e, i) => (
-									i%7 ? acc[acc.length-1].push(e): acc.push([e]),acc
-								),
-									[]
-								)
+								{month.days
+									.reduce(
+										(acc, e, i) => (i % 7 ? acc[acc.length - 1].push(e) : acc.push([e]), acc),
+										[]
+									)
 									.map((set: any, monthVal: number) => {
 										return (
 											<tr key={`${month.label}-${monthVal}`}>
