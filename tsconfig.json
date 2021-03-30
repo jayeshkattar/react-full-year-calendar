@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "outDir": "./build",
         "target": "es5",
         "lib": ["DOM","DOM.Iterable","ESNext"],
         "allowJs": true,
@@ -12,12 +13,11 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "noEmit": true,
-        "jsx": "react-jsx",
+        "jsx": "react",
         "downlevelIteration": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": false
     },
     "include": ["src"],
-    "exclude": ["test.ts", "**/*.test.ts"]
+    "exclude": ["test.ts", "**/*.test.ts","./build/**/*"]
 }
