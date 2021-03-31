@@ -4,7 +4,7 @@ module.exports = {
 	mode: 'production',
 	entry: './src/index.tsx',
 	output: {
-		path: path.resolve('build'),
+		path: path.resolve('build_module'),
 		filename: 'index.js',
 		libraryTarget: 'commonjs2',
 	},
