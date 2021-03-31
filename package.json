@@ -1,7 +1,7 @@
 {
   "name": "react-full-year-calendar",
   "npmName": "react-full-year-calendar",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": false,
   "description": "Twelve months calendar component in React JS",
   "main": "./build_module/index.js",
