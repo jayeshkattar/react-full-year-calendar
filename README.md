@@ -4,7 +4,7 @@ Twelve months calendar component in React JS
 
 # Demo
 
-Visit this ([link](https://react-full-year-calendar.vercel.app/))
+Visit this [link](https://react-full-year-calendar.vercel.app/)
 
 ## Documentation
 
