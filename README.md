@@ -29,18 +29,42 @@ yarn add react-full-year-calendar
 
 ### Props
 
-react-full-year-calendar component accepts a mandatory prop - year
+react-full-year-calendar component accepts the below as props
 
-### Example
+-   `year (Mandatory)` - Number - Accepts the Year to be displayed
+-   `onSelection (Optional)` - Callback Function - returns the selected Date in String Format (YYYY-MM-DD)
+-   `numberOfMonths (Optional)` - Number - Accepts the number of months to be displayed from the current Month
+-   `showYearHeading (Optional)` - Boolean - Flag to display the year by default it's false
+-   `isWeekDay (Optional)` - Callback Function - returns a boolean value
+
+### Example 1
 
 ```js
-import Calendar from "react-full-year-calendar";
+import Calendar from 'react-full-year-calendar';
 
 export default function SimpleCalendar() {
-  return (
-    <Calendar year={2021}/>
-  );
+	return <Calendar year={2021} />;
 }
 ```
 
+### Example 2
 
+```js
+import Calendar from 'react-full-year-calendar';
+
+export default function SimpleCalendar() {
+	const [current, setCurrent] = useState('');
+	return <Calendar year={2021} onSelection={setCurrent} />;
+}
+```
+
+### Example 3
+
+```js
+import Calendar from 'react-full-year-calendar';
+
+export default function SimpleCalendar() {
+	const [weekDay, setWeekDay] = useState(false);
+	return <Calendar year={2021} isWeekDay={setWeekDay} />;
+}
+```

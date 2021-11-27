@@ -5,17 +5,31 @@ import { Months } from './utils';
 
 import './Calendar.scss';
 
-const Calendar: React.FC<{ year: number }> = ({ year }) => {
+const Calendar: React.FC<{
+	year: number;
+	onSelection?: any;
+	numberOfMonths?: number;
+	showYearHeading?: boolean;
+	isWeekDay?: any;
+}> = ({ year, onSelection, numberOfMonths, showYearHeading = false, isWeekDay }) => {
 	const [calendarData, setCalendarData] = useState([]);
 
 	useEffect(() => {
 		displayCalendar(year);
-	}, [year]);
+	}, []);
 
 	const displayCalendar = (year: number) => {
 		let calendarArr = [] as any;
+		let startIndex = 0;
+		let endIndex = 12;
 
-		for (let i = 0; i < 12; i++) {
+		if (numberOfMonths) {
+			const currentMonth = new Date().getMonth();
+			startIndex = currentMonth;
+			endIndex = currentMonth + numberOfMonths;
+		}
+
+		for (let i = startIndex; i < endIndex; i++) {
 			let startDate = new Date(year, i, 1);
 			let endDate = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0);
 			const dateArr = [] as any;
@@ -27,7 +41,7 @@ const Calendar: React.FC<{ year: number }> = ({ year }) => {
 				dateArr.push(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`);
 				startDate = new Date(date.setDate(date.getDate() + 1));
 			}
-			
+
 			let tempArr =
 				getWeek.getDay() !== 0
 					? getWeek.getDay() - 1 === 0
@@ -47,21 +61,31 @@ const Calendar: React.FC<{ year: number }> = ({ year }) => {
 					: [];
 			dateArr.splice(dateArr.length, 0, ...addNElementsToEnd);
 
-			calendarArr.push({ label: Months[i], days: dateArr, startDay: getWeek.getDay() });
+			calendarArr.push({
+				label: i < 12 ? Months[i] : Months[endIndex - 13],
+				year: i < 12 ? year : year + 1,
+				days: dateArr,
+				startDay: getWeek.getDay(),
+			});
 		}
 		setCalendarData(calendarArr);
 	};
 
+	const handleSelection = (day, dayVal) => {
+		onSelection && onSelection(day);
+		isWeekDay && isWeekDay(![0, 6].includes(dayVal % 7));
+	};
+
 	return (
 		<>
-			<h3>Year: {year}</h3>
+			{showYearHeading && <h3>Year: {year}</h3>}
 			<div className="react-full-year-calendar-container">
 				{calendarData.map((month: any) => {
 					return (
 						<table className="react-full-year-calendar-month" key={month.label}>
 							<thead key={`${month.label}-head`}>
 								<tr>
-									<th colSpan={7}>{month['label']}</th>
+									<th colSpan={7}>{`${month['label']} - ${month.year}`}</th>
 								</tr>
 								<tr>
 									<WeekHeader />
@@ -81,6 +105,7 @@ const Calendar: React.FC<{ year: number }> = ({ year }) => {
 														<td
 															key={dayVal}
 															className={[0, 6].includes(dayVal % 7) ? 'grey' : ''}
+															onClick={() => day && handleSelection(day, dayVal)}
 														>
 															{day.split('-')[2]}
 														</td>
