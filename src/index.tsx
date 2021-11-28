@@ -9,7 +9,7 @@ import Calendar from './Calendar';
 // 		console.log(current);
 // 		console.log(w);
 // 	}, [current, w]);
-// 	return <Calendar year={2021} onSelection={setCurrent} showYearHeading={true} isWeekDay={setW} />;
+//     return <Calendar year={2021} onSelection={setCurrent} showYearHeading={true} isWeekDay={setW} selectedDates={['2021-12-8']}/>;
 // }
 
 // ReactDOM.render(<A />, document.getElementById('root'));

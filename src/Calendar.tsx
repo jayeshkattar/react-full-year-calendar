@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import classnames from 'classnames';
 import WeekHeader from './WeekHeader';
 
 import { Months } from './utils';
@@ -11,7 +12,8 @@ const Calendar: React.FC<{
 	numberOfMonths?: number;
 	showYearHeading?: boolean;
 	isWeekDay?: any;
-}> = ({ year, onSelection, numberOfMonths, showYearHeading = false, isWeekDay }) => {
+	selectedDates?: string[];
+}> = ({ year, onSelection, numberOfMonths, showYearHeading = false, isWeekDay, selectedDates }) => {
 	const [calendarData, setCalendarData] = useState([]);
 
 	useEffect(() => {
@@ -104,7 +106,10 @@ const Calendar: React.FC<{
 													return (
 														<td
 															key={dayVal}
-															className={[0, 6].includes(dayVal % 7) ? 'grey' : ''}
+															className={classnames(
+																`${[0, 6].includes(dayVal % 7) && 'grey'}`,
+																{ blue: selectedDates && selectedDates.includes(day) }
+															)}
 															onClick={() => day && handleSelection(day, dayVal)}
 														>
 															{day.split('-')[2]}

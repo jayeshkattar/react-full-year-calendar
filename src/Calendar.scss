@@ -23,12 +23,20 @@ h3{
 					background-color: rgba(0, 128, 0, 0.7);
 				}
 			}
+			&.blue {
+				background-color: blue;
+				color: black;
+				&:hover {
+					cursor: pointer;
+					background-color: red;
+				}
+			}
 		}
 		tbody {
 			td {
 				&:hover {
 					cursor: pointer;
-					background-color: rgba(0, 0, 255, 0.5);
+					background-color: rgba(0, 0, 255, 0.3);
 				}
 			}
 		}
