@@ -36,6 +36,7 @@ react-full-year-calendar component accepts the below as props
 -   `numberOfMonths (Optional)` - Number - Accepts the number of months to be displayed from the current Month
 -   `showYearHeading (Optional)` - Boolean - Flag to display the year by default it's false
 -   `isWeekDay (Optional)` - Callback Function - returns a boolean value
+-   `selectedDates (Optional)` - string Array - accepts strings in YYYY-MM-DD format
 
 ### Example 1
 
