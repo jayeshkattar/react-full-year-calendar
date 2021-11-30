@@ -9,7 +9,7 @@ import './Calendar.scss';
 const Calendar: React.FC<{
 	year: number;
 	onSelection?: any;
-	numberOfMonths?: number;
+	numberOfMonths?: undefined | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 	showYearHeading?: boolean;
 	isWeekDay?: any;
 	selectedDates?: string[];
@@ -64,7 +64,7 @@ const Calendar: React.FC<{
 			dateArr.splice(dateArr.length, 0, ...addNElementsToEnd);
 
 			calendarArr.push({
-				label: i < 12 ? Months[i] : Months[endIndex - 13],
+				label: i < 12 ? Months[i] : Months[i - 12],
 				year: i < 12 ? year : year + 1,
 				days: dateArr,
 				startDay: getWeek.getDay(),
